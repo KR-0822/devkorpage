@@ -1,16 +1,34 @@
+/* global kakao */
+import React, { useEffect, useState  } from "react";
+//import "../styles/Map.scss";
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bebf548a81a0129815c14dd31d75db8e"></script>
+
 const { kakao } = window;
 
+const MapTest = () => {
+	const [map,setMap] = useState(null);
 
-const MAP2 = () =>{
-	<div id="map" style="width:100%;height:350px;"></div>
-	var map = new kakao.maps.Map(mapContainer, mapOption); 
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		mapOption = { 
-			center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			level: 3 // 지도의 확대 레벨
-		};
-	
-	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-}
+    //처음 지도 그리기
+    useEffect(()=>{
+        const container = document.getElementById('map');
+        const options = { center: new kakao.maps.LatLng(33.450701, 126.570667) };
+        const kakaoMap = new kakao.maps.Map(container, options);
+        setMap(kakaoMap);
+    },[])
 
-export default MAP2
+    return (
+        <div
+            style={{
+                width: '50%',
+                display: 'inline-block',
+                marginLeft: '5px',
+                marginRight: '5px',
+            }}
+        >
+            <div id="map" style={{ width: '50%', height: '100px' }}></div>
+        </div>
+    );
+};
+
+export default MapTest;

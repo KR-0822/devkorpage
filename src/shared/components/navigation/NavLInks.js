@@ -2,18 +2,18 @@ import { NavLink } from "react-router-dom";
 import './NavLinks.css';
 import { Link } from "react-router-dom";
 import { FaSearch, FaRegHeart, FaUserAlt, FaShoppingBag } from "react-icons/fa";
-
+import logo_image1 from "./Devkor2.png";
 const NavLinks = () => {
   return (
-    <ul>
-
+    
+      
 
     <ul className="nav-links">
-      <ul>  
+      <li>  
       <div className="LOGO">
-        <img className="LOGO" src={"https://logolook.net/wp-content/uploads/2021/12/Dior-Logo.png"} alt="main_image"  />
+        <img className="LOGO" src={logo_image1} alt="main_image" />
       </div>
-      </ul>
+      </li>
       <li>
         <NavLink to="/" end>
           Home
@@ -35,16 +35,24 @@ const NavLinks = () => {
         </NavLink>
       </li>
       <ul>
-      <div className="righticons">
-        <FaSearch size="20" color="" /> &nbsp;&nbsp;
-        <FaRegHeart size="20" color="" /> &nbsp;&nbsp;
-        <FaUserAlt size="20" color="" /> &nbsp;&nbsp;
-        <FaShoppingBag size="20" color="" /> &nbsp;&nbsp;
-      </div>
+      <li className="righticons">
+        <NavLink to="" end>
+        <FaSearch size="20" color="" /> 
+        </NavLink>
+        <NavLink to="" end>
+        <FaRegHeart size="20" color="" /> 
+        </NavLink>
+        <NavLink to="Login" end>
+        <FaUserAlt size="20" color="" /> 
+        </NavLink>
+        <NavLink to="" end>
+        <FaShoppingBag size="20" color="" /> 
+        </NavLink>
+      </li>
       </ul>
       
     </ul>
-    </ul>
+    
   );
 };
 

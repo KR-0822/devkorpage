@@ -13,9 +13,18 @@ const Users = () => {
     //     }) 
     // } 
     useEffect(() =>{
-        fetch("http://localhost:3000/users").then(response =>{
+        fetch("http://localhost:3000/users")
+        .then(response =>{
             return response.json()
-        }).then(data =>{
+        }).then(response => {
+            if (response.TOKEN) {
+            localStorage.setItem('token', `${response.TOKEN}`);
+            localStorage.setItem('username', `${response.username}`);
+            this.props.history.push('/');
+            } else { alert('ID , password 확인');
+            }
+        })
+        .then(data =>{
             setUsers(data)
         }) 
     } ,[])

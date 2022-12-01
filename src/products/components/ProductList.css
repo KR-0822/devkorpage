@@ -1,3 +1,9 @@
 ul{
     list-style: none;
+
+}
+.productpic{
+    display: flex;
+    margin-bottom: 1.875rem;
+    margin-right: 5px;
 }

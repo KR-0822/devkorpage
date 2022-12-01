@@ -1,10 +1,13 @@
 import "./aboutus.css";
+import MapTest from "./map";
 import MAP2 from "./map"
 const AboutUs = () => {
     return (
 
         <div>
-        
+        <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bebf548a81a0129815c14dd31d75db8e"></script>
         <div id="foo1">크리스챤디올꾸뛰르코리아주식회사 | 04539 서울특별시 중구 을지로5길 19, 26층(수하동) | 사업자등록번호: 120-81-74197</div>
         <div id="foo1">대표자: 트렁히엔트란, Khong May Wan Sharon | 통신판매업</div>
         <div id="foo1">신고번호: 2021-서울중구-01116 | 사업자정보확인</div>

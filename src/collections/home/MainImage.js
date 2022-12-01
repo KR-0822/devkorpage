@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import main_image from "./images/main_image.jpeg";
-import main_image2 from "./images/main_image2.jpeg";
+import main_image from "./images/KU1.jpeg";
+import main_image2 from "./images/KU2.jpeg";
 import "./MainImage.css";
 import { Link } from "react-router-dom";
 const MainImage = () => {
