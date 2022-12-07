@@ -1,51 +1,87 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< Updated upstream
+=======
+import "./Login.css";
+>>>>>>> Stashed changes
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    userID : '',
-    password : ''
+    userID: "",
+    password: "",
   });
 
   const loginSubmitHandler = (event) => {
     event.preventDefault();
-    
+
     fetch("http://localhost:3000/auth/login", {
-      
       method: "POST",
       headers: {
-        'Content-Type' : 'application/json',
-        'Access-Control-Allow-Origin' : 'http://localhost'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost",
       },
-      credentials: 'include',
-      body: JSON.stringify({ //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
+      credentials: "include",
+      body: JSON.stringify({
+        //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
         userID: formData.userID,
-        password: formData.password
+        password: formData.password,
       }),
-    });
-    console.log()
+    })
+      .then((response) => {
+        const rs = response.json();
+        console.log(rs);
+        return rs;
+      })
+      .then(
+        fetch("http://localhost:3000/profile", {
+          headers: { "Access-Control-Allow-Origin": "http://localhost" },
+          credentials: "include",
+        })
+        .then((response) => {
+          const rs = response.json();
+          console.log(rs);
+          return rs;
+        }) .then((data) => {
+          console.log(data)
+        })
+      );
   };
-  const idChangeHandler =(event) =>{
-    setFormData({
-        ...formData,
-        userID: event.target.value,
-        
-    }) 
-  }
 
-  const passwordChangeHandler =(event) =>{
+  const idChangeHandler = (event) => {
     setFormData({
-        ...formData,
-        password: event.target.value,
-    }) 
-  }
+      ...formData,
+      userID: event.target.value,
+    });
+  };
+
+  const passwordChangeHandler = (event) => {
+    setFormData({
+      ...formData,
+      password: event.target.value,
+    });
+  };
   return (
+<<<<<<< Updated upstream
     <div>
       <input type="text" onChange={idChangeHandler}></input>
       <input type="password" onChange={passwordChangeHandler}></input>
       <button onClick={loginSubmitHandler}>login</button >
       <Link to={"/sign-up"}>
         <button> sign-up</button>
+=======
+    <div class="Container">
+      <input class="Input" type="text" onChange={idChangeHandler}></input>
+      <input
+        class="Input"
+        type="password"
+        onChange={passwordChangeHandler}
+      ></input>
+      <button class="Button" onClick={loginSubmitHandler}>
+        login
+      </button>
+      <Link to={"/Signup"}>
+        <button class="Button2"> Sign Up </button>
+>>>>>>> Stashed changes
       </Link>
     </div>
   );

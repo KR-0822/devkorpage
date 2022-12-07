@@ -19,11 +19,29 @@ const Users = () => {
 
     })
       .then((response) => {
-        return response.json();
+        const rs= response.json()
+        //console.log(rs)
+        return rs;
+        
       })
       .then((data) => {
         setUsers(data);
       });
+    fetch("http://localhost:3000/profile", {
+      //headers: { "Access-Control-Allow-Origin": "http://localhost" },
+      //credentials: 'include',
+
+    })
+      .then((response) => {
+        const rs= response.json()
+        console.log(rs.data)
+        return rs;
+        
+      })
+      .then((data) => {
+        setUsers(data);
+      });
+
   }, []);
   return (
     <div>
