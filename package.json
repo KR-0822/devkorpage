@@ -11,13 +11,13 @@
     "react-icons": "^4.6.0",
     "react-kakao-maps-sdk": "^1.1.5",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
     "user-context": "^1.0.14",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "export PORT=3001 && react-scripts start",
+    "start": "set PORT=3001 && react-scripts start", 
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

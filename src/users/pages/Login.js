@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import './Login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -41,12 +41,12 @@ const Login = () => {
     }) 
   }
   return (
-    <div>
-      <input type="text" onChange={idChangeHandler}></input>
-      <input type="password" onChange={passwordChangeHandler}></input>
-      <button onClick={loginSubmitHandler}>login</button >
+    <div class="Container">
+      <input class="Input" type="text" onChange={idChangeHandler}></input>
+      <input class="Input" type="password" onChange={passwordChangeHandler}></input>
+      <button class="Button" onClick={loginSubmitHandler}>login</button >
       <Link to={"/sign-up"}>
-        <button> sign-up</button>
+        <button class="Button2"> Sign Up </button>
       </Link>
     </div>
   );

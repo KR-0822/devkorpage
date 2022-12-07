@@ -2,6 +2,7 @@
     margin-top: 10%;
     padding: 20px;
     margin-left: 33%;
+    
 }
 .Input { 
 position: relative;
@@ -29,5 +30,21 @@ box-sizing: border-box;
     border: none;
     border-radius: 0;
     background-color: #03c75a;
+
+}
+.Button2{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 49px;
+    display: block;
+    width: 51%;
+    height: 49px;
+    margin: 16px 0 7px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    background-color: #000000;
 
 }
