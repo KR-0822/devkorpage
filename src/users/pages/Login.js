@@ -45,7 +45,7 @@ const Login = () => {
       <input class="Input" type="text" onChange={idChangeHandler}></input>
       <input class="Input" type="password" onChange={passwordChangeHandler}></input>
       <button class="Button" onClick={loginSubmitHandler}>login</button >
-      <Link to={"/sign-up"}>
+      <Link to={"/Signup"}>
         <button class="Button2"> Sign Up </button>
       </Link>
     </div>
