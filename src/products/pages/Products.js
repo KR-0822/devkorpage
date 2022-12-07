@@ -2,12 +2,6 @@ import ProductList from "../components/ProductList";
 
 import DUMMY_Products from "../components/DUMMY_PRODUCT";
 const Products = () => {
-<<<<<<< Updated upstream
-    return (
-        <div>
-        <ProductList items={DUMMY_Products} />
-        <button>ADD</button>
-=======
     const [products, setProducts] = useState([]);
     
     useEffect(() => {
@@ -29,7 +23,6 @@ const Products = () => {
         
         <div>
         <ProductList items={products} />
->>>>>>> Stashed changes
         </div>
     );
 }

@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-<<<<<<< Updated upstream
-=======
 import "./Login.css";
->>>>>>> Stashed changes
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -61,14 +58,6 @@ const Login = () => {
     });
   };
   return (
-<<<<<<< Updated upstream
-    <div>
-      <input type="text" onChange={idChangeHandler}></input>
-      <input type="password" onChange={passwordChangeHandler}></input>
-      <button onClick={loginSubmitHandler}>login</button >
-      <Link to={"/sign-up"}>
-        <button> sign-up</button>
-=======
     <div class="Container">
       <input class="Input" type="text" onChange={idChangeHandler}></input>
       <input
@@ -81,7 +70,6 @@ const Login = () => {
       </button>
       <Link to={"/Signup"}>
         <button class="Button2"> Sign Up </button>
->>>>>>> Stashed changes
       </Link>
     </div>
   );
