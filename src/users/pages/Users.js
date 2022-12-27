@@ -15,8 +15,7 @@ const Users = () => {
   useEffect(() => {
     fetch("http://localhost:3000/users", {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
-      credentials: 'include',
-
+      credentials: "include",
     })
       .then((response) => {
         return response.json();

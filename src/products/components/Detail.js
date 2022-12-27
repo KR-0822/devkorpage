@@ -1,5 +1,6 @@
 const Detail = (props) => {
-  const {id, name, image, price } = props.product
+  //없는 상품 처리
+  const {id, name, image, price} = props.product
   return (
     <div>
       <div>
@@ -8,14 +9,10 @@ const Detail = (props) => {
       <div className="text">
         {name}
         {id}
+        {price}
       </div>
       <div className="size">{/* selectbar */}</div>
-      <div className="purchase">
-        {price}
-        <button>wishlist</button>
-        <button>purchase</button>
-        <button>edit</button>
-      </div>
+
       <div></div>
     </div>
   );
