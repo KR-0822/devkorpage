@@ -6,9 +6,11 @@ import Products from "./products/pages/Products";
 import MainImage from "./home/MainImage";
 import Collections from "./collections/components/pages/Fashions";
 import ProductDetail from "./products/pages/ProductDetail";
-import Login from "./users/pages/Login";
-import Signup from "./users/pages/Signup";
+import Login from "./Auth/pages/Login";
+import Signup from "./Auth/pages/Signup";
 import AboutUs from "./Aboutus/pages/aboutus";
+import Carts from "./carts/pages/Carts";
+import ProductAddForm from "./products/components/ProductAddForm";
 
 function App() {
   return (
@@ -22,8 +24,11 @@ function App() {
           <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/Aboutus" element={<AboutUs />} />
           <Route path="/collections" element={<Collections />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<Signup/>} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/register" element={<Signup/>} />
+          <Route path="/carts" element={<Carts/>} />
+          <Route path="/products/add" element={<ProductAddForm />} />
+
           {/* <Route path="/" element={} /> */}
         </Routes>
       </main>
