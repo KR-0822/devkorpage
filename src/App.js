@@ -11,6 +11,7 @@ import Signup from "./Auth/pages/Signup";
 import AboutUs from "./Aboutus/pages/aboutus";
 import Carts from "./carts/pages/Carts";
 import ProductAddForm from "./products/components/ProductAddForm";
+import ProductUpdateForm from "./products/components/ProductUpdateForm";
 
 function App() {
   return (
@@ -28,7 +29,6 @@ function App() {
           <Route path="/auth/register" element={<Signup/>} />
           <Route path="/carts" element={<Carts/>} />
           <Route path="/products/add" element={<ProductAddForm />} />
-
           {/* <Route path="/" element={} /> */}
         </Routes>
       </main>

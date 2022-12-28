@@ -7,7 +7,7 @@ const Products = () => {
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
   const [products, setProducts] = useState([]);
-
+  
   useEffect(() => {
     fetch("http://localhost:3000/products", {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
@@ -17,14 +17,15 @@ const Products = () => {
         return response.json();
       })
       .then((data) => {
+        //console.log(data)
         setProducts(data);
+        
       });
   }, []);
 
   return (
     <div>
       <ProductList items={products} />
-      
       {isAdmin && (
         <div>
           <NavLink to="/products/add" end>
