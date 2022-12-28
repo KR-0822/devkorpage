@@ -1,21 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-const ProductAddForm = () => {
+import { useNavigate, useParams } from "react-router-dom";
+const ProductUpdateForm = (props) => {
+  const { productId } = useParams();
   const navigate = useNavigate();
-
   const categories = ["female", "male"]; //이거 백에서 받아오게 바꾸기
   const [checkedState, setCheckedState] = useState(
     new Array(categories.length).fill(false)
   );
   const [formData, setFormData] = useState({
-    name: "",
-    price: 0,
-    categories: [],
-    stock: 0,
-    description: "",
-    photos: {
-      url: [],
-    },
+    name: props.product.name,
+    price: props.product.price,
+    categories: props.product.categories,
+    stock: props.product.stock,
+    description: props.product.description,
+    photos: props.photos
   });
   const [disabled, setDisabled] = useState(false);
   const nameChangeHandler = (event) => {
@@ -73,15 +71,14 @@ const ProductAddForm = () => {
         url: [event.target.value],
       }
     });
-    console.log(formData.photos)
   }; // 여러개 받도록 수정하기
-  const AddProductSubmitHandler = (event) => {
+  const updateProductSubmitHandler = (event) => {
     event.preventDefault();
     categoriesSubmitHandler(checkedState);
     console.log(formData.categories);
 
-    fetch("http://localhost:3000/products", {
-      method: "POST",
+    fetch(`http://localhost:3000/products/${productId}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "http://localhost",
@@ -101,11 +98,11 @@ const ProductAddForm = () => {
     navigate("/products");
   };
   return (
-    <form onSubmit={AddProductSubmitHandler}>
-      <input type="text" onChange={nameChangeHandler} />
-      <input type="number" name="" id="" onChange={priceChangeHandler} />
-      <input type="number" name="" id="" onChange={stockChangeHandler} />
-      <input type="text" name="" id="" onChange={descriptionChangeHandler} />
+    <form onSubmit={updateProductSubmitHandler}>
+      <input type="text"  value={formData.name} onChange={nameChangeHandler} />
+      <input type="number" value={formData.price} name="" id="" onChange={priceChangeHandler} />
+      <input type="number" value={formData.stock} name="" id="" onChange={stockChangeHandler} />
+      <input type="text" value={formData.description} name="" id="" onChange={descriptionChangeHandler} />
       {categories.map((category, index) => {
         return (
           <li key={index}>
@@ -116,7 +113,7 @@ const ProductAddForm = () => {
                 id={`custom-checkbox-${index}`}
                 name={category}
                 value={category}
-                //checked={checkedState[index]}
+                checked={checkedState[index]} // 여기 바꾸기
                 onChange={(event) => categoriesCheckHandler(event, index)}
               />
               <label>{category}</label>
@@ -124,12 +121,13 @@ const ProductAddForm = () => {
           </li>
         );
       })}
-      <input type="url" name="" id="" onChange={photosChangeHandler}/>
-
+      <input type="url" name="" id="" onChange={photosChangeHandler}/> 
       
       <button type="submit"></button>
     </form>
   );
 };
 
-export default ProductAddForm;
+
+// 카테고리, 사진 한 번 싹 다시 하기
+export default ProductUpdateForm;

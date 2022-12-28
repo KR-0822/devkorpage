@@ -9,8 +9,8 @@ const ProductItem = (props) => {
       <Card>
         <Link to={`/products/${props.id}`}>
           <img className="productpic" src={props.image} alt="" />
-        </Link>
         <h2>{props.name}</h2>
+        </Link> 
         <h3>{props.price}</h3>
       </Card>
     </li>
