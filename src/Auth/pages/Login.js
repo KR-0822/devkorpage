@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../Auth-context";
-//import "./Login.css";
+import "./Login.css";
 
 const Login = () => {
   const authCtx = useContext(AuthContext);

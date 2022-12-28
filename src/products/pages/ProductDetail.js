@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import DUMMY_Products from "../components/DUMMY_PRODUCT";
 
 import Detail from "../components/Detail";
 import AuthContext from "../../Auth/Auth-context";
@@ -23,7 +24,7 @@ const ProductDetail = () => {
       });
   }, []);
 
-  //const thisProduct = DUMMY_Products.find(prod => prod.id === productId);
+  const thisProduct = DUMMY_Products.find(prod => prod.id === productId);
   return (
     <div>
       <Detail product={product}></Detail>

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import AuthContext from "../../Auth/Auth-context";
 import { NavLink } from "react-router-dom";
+import DUMMY_Products from "../components/DUMMY_PRODUCT";
+
 const Products = () => {
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
@@ -23,7 +25,8 @@ const Products = () => {
 
   return (
     <div>
-      <ProductList items={products} />
+      {/* 이거만 products로 다시 */}
+      <ProductList items={DUMMY_Products} /> 
       
       {isAdmin && (
         <div>
