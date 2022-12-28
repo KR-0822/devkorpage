@@ -64,11 +64,18 @@ const NavLinks = () => {
               </NavLink>
             )}
             {!isLoggedIn && (
-              <NavLink to="/auth/login">
+              
+              
                 <div className="container">
-                <button className="Loginbutton">Login</button>
+                  
+                <li>
+                <NavLink to="/auth/login">
+                <div className="Loginbutton">Login</div>
+                </NavLink>
+                </li>
+                
                 </div>
-              </NavLink>
+              
             )}
             </div>
         </ul>

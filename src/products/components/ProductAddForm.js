@@ -80,7 +80,7 @@ const ProductAddForm = () => {
     categoriesSubmitHandler(checkedState);
     console.log(formData.categories);
 
-    fetch("http://localhost:3000/products", {
+    fetch("http://35.78.92.72:3000/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

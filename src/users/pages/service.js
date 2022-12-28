@@ -1,6 +1,6 @@
 //동기식 방식 ( async await 사용!!!!!)
 export const fetchLogin = async ({ id, password }) => {
-    const response = await fetch("http://localhost:3000/users");
+    const response = await fetch("http://35.78.92.72:3000/users");
   
     if (response.ok) {
         //서버통신이 성공적으로 이루어지면 users에 json값 대입

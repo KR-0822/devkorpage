@@ -15,7 +15,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState([]);
   const [isUpdate, setUpdate] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`http://35.78.92.72:3000/products/${productId}`, {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })
@@ -29,7 +29,7 @@ const ProductDetail = () => {
 
   
   const productDeleteHandler = () => {
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`http://35.78.92.72:3000/products/${productId}`, {
       method: "DELETE",
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
@@ -63,7 +63,7 @@ const ProductDetail = () => {
       )}
       </div>
       {isLoggedIn && (
-        <button onClick={carts}>Carts</button>
+        <button onClick={productDeleteHandler}>Carts</button>
       )}
     </div>
   );

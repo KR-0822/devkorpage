@@ -1,0 +1,125 @@
+.Bigbox{
+    max-width: 1440px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.imagebox{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+
+.image{
+    display: flex;
+    height: 80%;
+    width: 70%;
+    padding: 0;
+    
+
+
+}
+.sidebox{
+    width: 40%;
+    height: 600px;
+    margin-right: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text{
+
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+
+}
+.text2{
+    width: 80%;
+
+    font-size: 36px;
+    line-height: 45px;
+    color: #000000;
+    margin-bottom: 20%;
+  
+
+}
+
+.size{
+
+
+
+
+}
+
+.purchase{
+
+    display: flex;
+    justify-content: center;
+
+
+    
+}
+
+.Button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.wishlistB{
+    width: 80%;
+    height: 70%;
+    border-radius: 5px;
+    background: #767676;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #ffffff;
+    margin-top: 5px;
+
+
+
+    
+}
+.purchaseB{
+    margin-top: 5px;
+    width: 80%;
+    height: 70%;
+    border-radius: 5px;
+    background: #19ce60;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #ffffff;
+    margin-right: 44px;
+
+    
+}
+.editB{
+
+
+
+    
+}

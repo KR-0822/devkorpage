@@ -12,7 +12,7 @@ const Signup = () => {
 
   const signupSubmitHandler = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/auth/register", {
+    fetch("http://35.78.92.72:3000/auth/register", {
       method: "POST",
       headers: {
         'Content-Type' : 'application/json'
