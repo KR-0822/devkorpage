@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./Signup.css";
+
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ const Signup = () => {
 
   const signupSubmitHandler = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/auth/register", {
+    fetch("http://35.78.92.72:3000/auth/register", {
       method: "POST",
       headers: {
         'Content-Type' : 'application/json'
@@ -58,12 +60,13 @@ const Signup = () => {
   }
   return (
     <div>
-      <form onSubmit={signupSubmitHandler}>
-        <input type="text" onChange={nameChangeHandler} />
-        <input type="number" onChange={ageChangeHandler} />
-        <input type="text" onChange={userIDChangeHandler} />
-        <input type="password" name="" id="" onChange={passwordChangeHandler}/>
-        <button>submit</button>
+      <form className="Container" onSubmit={signupSubmitHandler}>
+        <input className="Input" placeholder="ID" type="text" onChange={userIDChangeHandler} />
+        <input className="Input" placeholder="Password" type="password" name="" id="" onChange={passwordChangeHandler}/>
+        <input className="Input" placeholder="Name" type="text" onChange={nameChangeHandler} />
+        <input className="Input" placeholder="Age" type="number" min="1" onChange={ageChangeHandler} />
+
+        <button className="Button">Submit</button>
       </form>
     </div>
   );

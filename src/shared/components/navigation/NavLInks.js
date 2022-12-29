@@ -3,6 +3,8 @@ import "./NavLinks.css";
 import { Link } from "react-router-dom";
 import { FaSearch, FaRegHeart, FaUserAlt, FaShoppingBag } from "react-icons/fa";
 import AuthContext from "../../../Auth/Auth-context";
+import logo_image1 from "./Devkor2.png";
+
 import { useContext } from "react";
 
 const NavLinks = () => {
@@ -16,9 +18,7 @@ const NavLinks = () => {
           <div className="LOGO">
             <img
               className="LOGO"
-              src={
-                "https://logolook.net/wp-content/uploads/2021/12/Dior-Logo.png"
-              }
+              src={ logo_image1  }
               alt="main_image"
             />
           </div>
@@ -47,24 +47,37 @@ const NavLinks = () => {
         </li>
         <ul>
           <div className="righticons">
-            <FaSearch size="20" color="" /> &nbsp;&nbsp;
-            <FaRegHeart size="20" color="" /> &nbsp;&nbsp;
+            <NavLink to="" end>
+            <FaSearch size="22" color="" />
+            </NavLink>
+            <NavLink to="" end>
+            <FaRegHeart size="22" color="" /> 
+            </NavLink>
             {isLoggedIn && (
               <NavLink to="/auth/login">
-                <FaUserAlt size="20" color="" /> &nbsp;&nbsp;
+                <FaUserAlt size="22" color="" /> 
               </NavLink>
             )}
             {isLoggedIn && (
               <NavLink to="/carts">
-                <FaShoppingBag size="20" color="" /> &nbsp;&nbsp;
+                <FaShoppingBag size="22" color="" /> 
               </NavLink>
             )}
             {!isLoggedIn && (
-              <NavLink to="/auth/login">
-                <button>Login</button>
-              </NavLink>
+              
+              
+                <div className="container">
+                  
+                <li>
+                <NavLink to="/auth/login">
+                <div className="Loginbutton">Login</div>
+                </NavLink>
+                </li>
+                
+                </div>
+              
             )}
-          </div>
+            </div>
         </ul>
       </ul>
     </ul>

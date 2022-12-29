@@ -78,7 +78,6 @@ const ProductAddForm = () => {
   const addProductSubmitHandler = (event) => {
     event.preventDefault();
     categoriesSubmitHandler(checkedState);
-
     fetch("http://localhost:3000/products", {
       method: "POST",
       headers: {

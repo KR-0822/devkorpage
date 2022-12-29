@@ -3,8 +3,8 @@ import React, { useState } from "react"
 const AuthContext = React.createContext({
     token: '',
     userID: 0,
-    isLoggedIn: false,
-    isAdmin : false,
+    isLoggedIn: true,
+    isAdmin : true,
     login : (token)=>{},
     logout : () =>{},  
     roleCheck : (role) =>{},
@@ -13,8 +13,12 @@ const AuthContext = React.createContext({
 
 export const AuthContextProvider = (props) =>{
     const [token, setToken] = useState(null);
-    const [isAdmin,setAdmin] = useState(false)
+
+
     const [userID, setUserID] = useState(0)
+
+    const [isAdmin,setAdmin] = useState(true)
+
     const userIsLoggedIn = !!token; 
     const loginHandler = (token)=>{
         setToken(token);

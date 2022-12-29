@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../Auth-context";
-//import "./Login.css";
+import "./Login.css";
 
 const Login = () => {
   const authCtx = useContext(AuthContext);
@@ -14,7 +14,7 @@ const Login = () => {
   const  loginSubmitHandler = async (event) => {
     event.preventDefault();
 
-    await fetch("http://localhost:3000/auth/login", {
+    await fetch("http://35.78.92.72:3000/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,10 +32,9 @@ const Login = () => {
       const rs = response.json();
       return rs;
     });
-
     await fetch("http://localhost:3000/profile", {
       headers: { 
-        "Access-Control-Allow-Origin": "http://35.78.92.72" 
+        "Access-Control-Allow-Origin": "http://localhost" 
       },
       credentials: "include",
     })

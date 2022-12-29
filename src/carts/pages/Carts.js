@@ -11,7 +11,7 @@ const Carts = () => {
   const cartID = 2; // 이거 받아오게 하기 쿠키에 집어넣어서?
 
   useEffect(() => {
-    fetch(`http://localhost:3000/carts/${cartID}`, {
+    fetch(`http://35.78.92.72:3000/carts/${cartID}`, {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })

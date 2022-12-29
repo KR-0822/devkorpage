@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import DUMMY_Products from "../components/DUMMY_PRODUCT";
 
 import Detail from "../components/Detail";
 import AuthContext from "../../Auth/Auth-context";
@@ -9,11 +10,12 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const {isAdmin, isLoggedIn, userID} = authCtx
+
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
   const [isUpdate, setUpdate] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:3000/products/${productId}`, {
+    fetch(`http://35.78.92.72:3000/products/${productId}`, {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })
@@ -53,6 +55,7 @@ const ProductDetail = () => {
     console.log(userID);
   };
 
+
   return (
     <div>
       <Detail product={product}></Detail>
@@ -70,6 +73,7 @@ const ProductDetail = () => {
           <button onClick={cartsHandler}>Carts</button>
           <button>purchase</button>
         </div>
+
       )}
     </div>
   );

@@ -19,7 +19,7 @@
     color: rgba(255, 255, 255, 0.884);
     font-size: xx-large;
     text-shadow: 1px 1px 1px #000;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'gothic',;
 }
 .image2-text {
 	padding: 5px 10px;
@@ -31,5 +31,5 @@
     color: rgba(255, 255, 255, 0.884);
     font-size: xx-large;
     text-shadow: 1px 1px 1px #000;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'gothic', ;
 }
