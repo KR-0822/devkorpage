@@ -18,20 +18,6 @@ const Detail = (props) => {
   const [products, setProducts] = useState([]);
 
 
-  useEffect(() => {
-    fetch("http://35.78.92.72:3000/products", {
-      headers: { "Access-Control-Allow-Origin": "http://localhost" },
-      credentials: "include",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //console.log(data)
-        setProducts(data);
-        
-      });
-  }, []);
 
   return (
     <div className="Bigbox">
@@ -45,25 +31,23 @@ const Detail = (props) => {
 
       </div>
       <div className="sidebox">
-      <div className="text">
+      <div className="text2">
         {name}
+        </div>
+      <div className="text2">
         {id}
-        {price}
-        <p className="text2">가방방</p>
+        </div>
+      <div className="text2">
+        ${price}
       </div>
       <div className="size">{/* selectbar */}</div>
       <div className="purchase">
         {/* {price} */}
-        {price}
+        ${price}
 
       </div>  
-      <div clasName="Button">
-        <button className="wishlistB">wishlist</button>
-        <button className="purchaseB">purchase</button>
-      </div>
       
       </div>
-      <div></div>
     </div>
   );
 };

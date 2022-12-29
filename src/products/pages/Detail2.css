@@ -1,0 +1,63 @@
+
+.Buttonw{
+    display: flex;
+
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: #ffffff;
+    background-color:#ffffff00;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.wishlistB{
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 40px;
+    background-color: #ffffff;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-color: #000000;
+
+
+
+    
+}
+.purchaseB{
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 40px;
+    background-color: #000000;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+.inputdiv{
+    margin-left: 64%;
+    display: flex;
+
+}
+.inputB{
+position: relative;
+width: 50px;
+height: 20px;
+text-align: center;
+margin-bottom: 3%;
+border: solid 1px #dadada;
+background: #fff;
+box-sizing: border-box;
+
+}
+.p{
+    color: white;
+}

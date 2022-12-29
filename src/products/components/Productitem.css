@@ -1,0 +1,48 @@
+ul{
+    list-style: none;
+
+}
+.productpicc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Cardpic{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.875rem;
+    border: 1px solid rgba(61, 61, 61, 0.186);    
+    border-radius: 1px;
+    float: left;
+    margin-top: 50px;
+    margin-right: 32px;
+
+
+
+
+}
+
+
+.img{
+    max-width: 280px;
+    background-size: cover;
+  }
+
+.productname{
+    font-size: 17px;
+    margin-left: 10px;
+    text-decoration-line: none;
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: black; /* 링크의 색상 제거 */
+}
+.price{
+    font-size: 17px;
+    text-align: right;
+    margin-right: 10px;
+    text-decoration-line: none;
+    color:  black; /* 링크의 색상 제거 */
+
+}

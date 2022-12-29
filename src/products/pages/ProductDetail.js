@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import DUMMY_Products from "../components/DUMMY_PRODUCT";
+import "./Detail2.css"
+
 
 import Detail from "../components/Detail";
 import AuthContext from "../../Auth/Auth-context";
@@ -57,8 +59,18 @@ const ProductDetail = () => {
 
 
   return (
-    <div>
+    <div className="">
       <Detail product={product}></Detail>
+      <div  className="inputdiv">
+      <input className="inputB" placeholder="수량" type="number" min="1" />
+      </div>
+            {/*isLoggedIn && */(
+      
+      <div className="Buttonw">
+        <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
+        <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+      </div>
+            )}
       <div>
         {isAdmin && !isUpdate && (
           <button onClick={productUpdateHandler}>Update</button>
@@ -68,13 +80,9 @@ const ProductDetail = () => {
         )}
         {isAdmin && <button onClick={productDeleteHandler}>Delete</button>}
       </div>
-      {isLoggedIn && (
-        <div>
-          <button onClick={cartsHandler}>Carts</button>
-          <button>purchase</button>
-        </div>
 
-      )}
+
+      
     </div>
   );
 };
