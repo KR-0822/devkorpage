@@ -14,7 +14,7 @@ const Login = () => {
   const  loginSubmitHandler = async (event) => {
     event.preventDefault();
 
-    await fetch("http://35.78.92.72:3000/auth/login", {
+    await fetch("http://localhost:3000/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,9 +29,11 @@ const Login = () => {
         password: formData.password,
       }),
     }).then((response) => {
-      const rs = response.json();
-      return rs;
-    });
+      if(!response.ok){
+        throw new Error;
+      }
+    })
+
     await fetch("http://localhost:3000/profile", {
       headers: { 
         "Access-Control-Allow-Origin": "http://localhost" 
@@ -40,7 +42,6 @@ const Login = () => {
     })
       .then((response) => {
         const rs = response.json();
-        console.log(rs);
         return rs;
       })
       .then((data) => {

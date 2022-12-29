@@ -11,7 +11,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   
   useEffect(() => {
-    fetch("http://35.78.92.72:3000/products", {
+    fetch("http://localhost:3000/products", {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })

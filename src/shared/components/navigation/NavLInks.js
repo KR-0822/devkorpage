@@ -16,11 +16,9 @@ const NavLinks = () => {
       <ul className="nav-links">
         <ul>
           <div className="LOGO">
-            <img
-              className="LOGO"
-              src={ logo_image1  }
-              alt="main_image"
-            />
+            <NavLink to="/" end>
+              <img className="LOGO" src={logo_image1} alt="main_image" />
+            </NavLink>
           </div>
         </ul>
         <li>
@@ -35,6 +33,11 @@ const NavLinks = () => {
             </NavLink>
           </li>
         )}
+        {isAdmin && (
+          <li>
+            <NavLink to="/orders/check">Orders</NavLink>
+          </li>
+        )}
         <li>
           <NavLink to="/Aboutus" end>
             About Us
@@ -45,39 +48,35 @@ const NavLinks = () => {
             Products
           </NavLink>
         </li>
+
         <ul>
           <div className="righticons">
             <NavLink to="" end>
-            <FaSearch size="22" color="" />
+              <FaSearch size="22" color="" />
             </NavLink>
             <NavLink to="" end>
-            <FaRegHeart size="22" color="" /> 
+              <FaRegHeart size="22" color="" />
             </NavLink>
             {isLoggedIn && (
               <NavLink to="/auth/login">
-                <FaUserAlt size="22" color="" /> 
+                <FaUserAlt size="22" color="" />
               </NavLink>
             )}
             {isLoggedIn && (
               <NavLink to="/carts">
-                <FaShoppingBag size="22" color="" /> 
+                <FaShoppingBag size="22" color="" />
               </NavLink>
             )}
             {!isLoggedIn && (
-              
-              
-                <div className="container">
-                  
+              <div className="container">
                 <li>
-                <NavLink to="/auth/login">
-                <div className="Loginbutton">Login</div>
-                </NavLink>
+                  <NavLink to="/auth/login">
+                    <div className="Loginbutton">Login</div>
+                  </NavLink>
                 </li>
-                
-                </div>
-              
+              </div>
             )}
-            </div>
+          </div>
         </ul>
       </ul>
     </ul>
