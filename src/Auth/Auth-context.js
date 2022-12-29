@@ -7,12 +7,14 @@ const AuthContext = React.createContext({
     isAdmin : false,
     login : (token)=>{},
     logout : () =>{},  
-    roleCheck : () =>{}
+    roleCheck : (role) =>{},
+    userIDCheck : (id) =>{}
 })
 
 export const AuthContextProvider = (props) =>{
     const [token, setToken] = useState(null);
     const [isAdmin,setAdmin] = useState(false)
+    const [userID, setUserID] = useState(0)
     const userIsLoggedIn = !!token; 
     const loginHandler = (token)=>{
         setToken(token);
@@ -25,14 +27,18 @@ export const AuthContextProvider = (props) =>{
             setAdmin(true)
         }
     }
-
+    const userIDCheckHandler = (id) =>{
+        setUserID(id);
+    }
     const contextValue = {
         token: token,
         isLoggedIn : userIsLoggedIn,
         login: loginHandler,
         logout: logoutHandler,
         isAdmin : isAdmin,
-        roleCheck : roleCheckHandler
+        roleCheck : roleCheckHandler,
+        userID : userID,
+        userIDCheck : userIDCheckHandler
     }
     return <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>
 }
