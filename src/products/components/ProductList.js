@@ -7,15 +7,15 @@ const ProductList = (props) => {
   if (props.items.length === 0) {
     return (
     
-    <div class="page-404">
-    <div class="outer">
-        <div class="middle">
-            <div class="inner">
-                <div class="inner-circle"><i class="fa fa-home"></i><span>Error</span></div>
-                <span class="inner-status">Oops! There is no product</span>
-                <span class="inner-detail">
+    <div className="page-404">
+    <div className="outer">
+        <div className="middle">
+            <div className="inner">
+                <div className="inner-circle"><i className="fa fa-home"></i><span>Error</span></div>
+                <span className="inner-status">Oops! There is no product</span>
+                <span className="inner-detail">
                   Sorry for the inconvenience.    
-                    <a href="/" class="btn btn-info mtl"><i class="fa fa-home"></i>&nbsp;
+                    <a href="/" className="btn btn-info mtl"><i className="fa fa-home"></i>&nbsp;
                         Return home
                     </a> 
                 </span>

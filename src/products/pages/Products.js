@@ -31,7 +31,7 @@ const Products = () => {
       {isAdmin && (
         <div>
           <NavLink to="/products/add" end>
-            <button class="Add">ADD</button>
+            <button className="Add">ADD</button>
           </NavLink>
         </div>
       )}

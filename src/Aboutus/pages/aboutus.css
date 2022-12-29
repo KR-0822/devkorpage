@@ -10,3 +10,122 @@
 
 
 }
+
+.aboutuspage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #111;
+
+}
+
+body, ull, h2, p{
+    margin:0 ;
+    padding:0;
+}
+
+lii{
+
+    list-style-type: none;
+}
+
+body {
+    background-color: #111;
+    color: #999;
+}
+
+.wrapper {
+    display: flex;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(17, 17, 17, 0.936);
+}
+
+.team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.team-item{
+    flex-basis:350px;
+    margin: 0 10px;
+}
+.team-item img{
+    width: 100%;
+}
+
+.team-item:hover{
+    flex-basis: 400px;
+    
+    transition: all .2s;
+    margin: 0 20px;
+}
+
+.profile{
+    background-color: #222;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile::before{
+    content: ' '; 
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 ); /* IE6-9 */
+
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 800px;
+
+}
+
+.profile_red{
+    color: #ff6666c5
+}
+.profile_blue{
+    color: rgba(238, 130, 238, 0.693)
+}
+
+.profile-contents{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+}
+.profile-contents h2{
+    font-size: 50px;
+}
+
+.profile-contents h2 span{
+    display: block;
+    font-size: 25px;
+}
+
+.profile-contents p{
+    color: white;
+    font-size: 15px;
+    min-width: 140px;
+    color: white;
+    max-height: 0;
+    overflow: hidden;
+    line-height: 1.2;
+    transition: all .3s;
+    opacity: 0;
+    transition-delay: .1s;
+}
+
+
+.team-item:hover .profile-contents p{
+    max-height: 6em;
+    opacity: 1;
+    margin-top: 0.2em;
+
+}

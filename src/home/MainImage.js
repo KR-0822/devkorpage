@@ -10,7 +10,7 @@ const MainImage = () => {
         <Link to={"/collections"}>
           <div className="relativebox">
           <img className="main-image" src={main_image} alt="main_image" />
-          <div class="image1-text">
+          <div className="image1-text">
           <p>Devkor 1 </p>
           </div>
           </div>
@@ -19,7 +19,7 @@ const MainImage = () => {
       <div  className="image-box">
         <Link to={"/collections"}>
           <img className="main-image" src={main_image2} alt="main_image" />
-          <div class="image2-text">
+          <div className="image2-text">
           <p>Devkor 2 </p>
           </div>
         </Link>

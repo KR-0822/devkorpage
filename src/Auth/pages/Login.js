@@ -64,18 +64,18 @@ const Login = () => {
     });
   };
   return (
-    <div class="Container">
-      <input class="Input" type="text" onChange={idChangeHandler}></input>
+    <div className="Container">
+      <input className="Input" type="text" onChange={idChangeHandler}></input>
       <input
-        class="Input"
+        className="Input"
         type="password"
         onChange={passwordChangeHandler}
       ></input>
-      <button class="Button" onClick={loginSubmitHandler}>
+      <button className="Button" onClick={loginSubmitHandler}>
         login
       </button>
       <Link to={"/auth/register"}>
-        <button class="Button2"> Sign Up </button>
+        <button className="Button2"> Sign Up </button>
       </Link>
     </div>
   );

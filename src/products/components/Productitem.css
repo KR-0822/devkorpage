@@ -14,12 +14,11 @@ ul{
     display: flex;
     flex-direction: column;
     margin-bottom: 1.875rem;
-    border: 1px solid rgba(61, 61, 61, 0.186);    
     border-radius: 1px;
     float: left;
     margin-top: 50px;
     margin-right: 32px;
-
+    border-bottom: none;
 
 
 

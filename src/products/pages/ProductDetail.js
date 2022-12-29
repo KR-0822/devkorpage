@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import DUMMY_Products from "../components/DUMMY_PRODUCT";
-import "./Detail2.css"
+import "./ProductDetail.css"
 
 
 import Detail from "../components/Detail";
