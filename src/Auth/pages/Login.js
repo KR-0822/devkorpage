@@ -18,8 +18,10 @@ const Login = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost",
+        "Access-Control-Allow-Origin": "http://35.78.92.72",
+        
       },
+      
       credentials: "include",
       body: JSON.stringify({
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
@@ -30,9 +32,10 @@ const Login = () => {
       const rs = response.json();
       return rs;
     });
-
-    await fetch("http://35.78.92.72:3000/profile", {
-      headers: { "Access-Control-Allow-Origin": "http://localhost" },
+    await fetch("http://localhost:3000/profile", {
+      headers: { 
+        "Access-Control-Allow-Origin": "http://localhost" 
+      },
       credentials: "include",
     })
       .then((response) => {
@@ -43,6 +46,7 @@ const Login = () => {
       .then((data) => {
         authCtx.login(data.role)
         authCtx.roleCheck(data.role)
+        authCtx.userIDCheck(data.id)
       });
   };
 

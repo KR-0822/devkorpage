@@ -11,7 +11,9 @@ import Signup from "./Auth/pages/Signup";
 import AboutUs from "./Aboutus/pages/aboutus";
 import Carts from "./carts/pages/Carts";
 import ProductAddForm from "./products/components/ProductAddForm";
+
 import Orders from "./orders/pages/Orders"
+
 import ProductUpdateForm from "./products/components/ProductUpdateForm";
 
 function App() {
@@ -31,7 +33,6 @@ function App() {
           <Route path="/carts" element={<Carts/>} />
           <Route path="/products/add" element={<ProductAddForm />} />
           <Route path="/orders" element={<Orders />} />
-
           {/* <Route path="/" element={} /> */}
         </Routes>
       </main>

@@ -75,12 +75,10 @@ const ProductAddForm = () => {
     });
     console.log(formData.photos)
   }; // 여러개 받도록 수정하기
-  const AddProductSubmitHandler = (event) => {
+  const addProductSubmitHandler = (event) => {
     event.preventDefault();
     categoriesSubmitHandler(checkedState);
-    console.log(formData.categories);
-
-    fetch("http://35.78.92.72:3000/products", {
+    fetch("http://localhost:3000/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +99,7 @@ const ProductAddForm = () => {
     navigate("/products");
   };
   return (
-    <form onSubmit={AddProductSubmitHandler}>
+    <form onSubmit={addProductSubmitHandler}>
       <input type="text" onChange={nameChangeHandler} />
       <input type="number" name="" id="" onChange={priceChangeHandler} />
       <input type="number" name="" id="" onChange={stockChangeHandler} />
