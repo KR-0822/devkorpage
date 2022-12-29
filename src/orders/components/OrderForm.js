@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./OrderForm.css";
 
 const OrderForm = () => {
   const navigate = useNavigate();
-  const [checkedState, setCheckedState] = useState(
-    new Array(categories.length).fill(false)
-  );
+ // const [checkedState, setCheckedState] = useState(
+ //   new Array(categories.length).fill(false)
+ // );
   const [formData, setFormData] = useState({
     user_id: "",
     orderer_name: "",
@@ -106,19 +106,19 @@ const OrderForm = () => {
   return (
     <div>
       <form onSubmit={OrderFormSubmitHandler}>
-        <div>
-          <input type="number" name="" id=""  onChange={user_idChangeHandler} />
-          <input type="text" onChange={orderer_nameChangeHandler}/>
-          <input type="text" onChange={receiver_nameChangeHandler}/>
-          <input type="text" onChange={zipcodeChangeHandler}/>
-          <input type="text" onChange={phone_noChangeHandler}/>
-          <input type="number" name="" id="" onChange={total_priceChangeHandler}/>
-          <input type="text" onChange={productsIDChangeHandler}/>
-          <input type="text" onChange={countChangeHandler}/>
-        </div>
-        <input type="" />
+        <div className="Container">
+          <input type="number" name="" id="" className="Input" placeholder="ID"  onChange={user_idChangeHandler} />
+          <input type="text" className="Input" placeholder="보내는분" onChange={orderer_nameChangeHandler}/>
+          <input type="text" className="Input" placeholder="받는분" onChange={receiver_nameChangeHandler}/>
+          <input type="text" className="Input" placeholder="우편번호" onChange={zipcodeChangeHandler}/>
+          <input type="text" className="Input" placeholder="전화번호" onChange={phone_noChangeHandler}/>
+          <input type="number" className="Input" placeholder="가격" name="" id="" onChange={total_priceChangeHandler}/>
+          <input type="text" className="Input" placeholder="제품명" onChange={productsIDChangeHandler}/>
+          <input type="text" className="Input" placeholder="총가격" onChange={countChangeHandler}/>
+        
 
-        <button></button>
+          <button type="submit" className="Button"> 주문하기 </button>
+        </div>
       </form>
     </div>
   );
