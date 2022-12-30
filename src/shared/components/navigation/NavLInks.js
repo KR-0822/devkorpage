@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import "./NavLinks.css";
-import { Link } from "react-router-dom";
 import { FaSearch, FaRegHeart, FaUserAlt, FaShoppingBag } from "react-icons/fa";
 import AuthContext from "../../../Auth/Auth-context";
 import logo_image1 from "./Devkor2.png";
@@ -58,7 +57,7 @@ const NavLinks = () => {
               <FaRegHeart size="22" color="" />
             </NavLink>
             {isLoggedIn && (
-              <NavLink to="/auth/login">
+              <NavLink to="/auth/logout">
                 <FaUserAlt size="22" color="" />
               </NavLink>
             )}

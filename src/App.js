@@ -13,6 +13,7 @@ import ProductAddForm from "./products/components/ProductAddForm";
 
 import Orders from "./orders/pages/Orders"
 import OrderCheck from "./orders/pages/OrderCheck"
+import Logout from "./Auth/pages/Logout";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Aboutus" element={<AboutUs />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/logout" element={<Logout/>} />
           <Route path="/auth/register" element={<Signup/>} />
           <Route path="/carts" element={<Carts/>} />
           <Route path="/products/add" element={<ProductAddForm />} />

@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../Auth-context";
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate()
   const authCtx = useContext(AuthContext);
   const [formData, setFormData] = useState({
     userID: "",
@@ -46,6 +47,7 @@ const Login = () => {
         authCtx.login(data.role)
         authCtx.roleCheck(data.role)
         authCtx.userIDCheck(data.id)
+        navigate('/')
       });
   };
 

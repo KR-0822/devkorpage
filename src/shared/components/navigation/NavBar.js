@@ -4,7 +4,7 @@ import React, { Fragment, useState } from "react";
 
 import MainHeader from "./MainHeader";
 import SideDrawer from "./SideDrawer";
-import NavLinks from "./NavLInks";
+import NavLinks from "./NavLinks";
 import NavToggleButton from "./NavToggleButton";
 import Backdrop from "../../UI/Backdrop";
 
