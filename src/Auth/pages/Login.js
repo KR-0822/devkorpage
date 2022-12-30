@@ -13,7 +13,6 @@ const Login = () => {
 
   const  loginSubmitHandler = async (event) => {
     event.preventDefault();
-
     await fetch("http://localhost:3000/auth/login", {
       method: "POST",
       headers: {
@@ -21,7 +20,6 @@ const Login = () => {
         "Access-Control-Allow-Origin": "http://35.78.92.72",
         
       },
-      
       credentials: "include",
       body: JSON.stringify({
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음

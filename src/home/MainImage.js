@@ -7,7 +7,7 @@ const MainImage = () => {
   return (
     <Fragment>
       <div className="image-box">
-        <Link to={"/collections"}>
+        <Link to={"/Aboutus"}>
           <div className="relativebox">
           <img className="main-image" src={main_image} alt="main_image" />
           <div className="image1-text">
@@ -17,7 +17,7 @@ const MainImage = () => {
         </Link>
       </div>
       <div  className="image-box">
-        <Link to={"/collections"}>
+        <Link to={"/products"}>
           <img className="main-image" src={main_image2} alt="main_image" />
           <div className="image2-text">
           <p>Devkor 2 </p>

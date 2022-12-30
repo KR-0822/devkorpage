@@ -14,8 +14,10 @@ const Detail = (props) => {
   //없는 상품 처리
   const {description, name, price} = props.product
   //console.log(props.product.photos[0].url)
-  //const image ="";
-  const image = props.product.photos[0].url
+  let image = "";
+  if(!props.product.photos){
+    image = props.product.photos[0].url
+  } 
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
 
@@ -26,7 +28,7 @@ const Detail = (props) => {
       <div className="imagebox">
         {/* 얘도 image로 */}
         
-        <img className="image" src="image" alt="" />
+        <img className="image" src={image} alt="" />
         {isAdmin && (
         <button className="editB" >edit</button>
       )}

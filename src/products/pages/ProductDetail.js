@@ -2,8 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import DUMMY_Products from "../components/DUMMY_PRODUCT";
-import "./ProductDetail.css"
-
+import "./ProductDetail.css";
 
 import Detail from "../components/Detail";
 import AuthContext from "../../Auth/Auth-context";
@@ -12,12 +11,12 @@ import { Link } from "react-router-dom";
 const ProductDetail = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
-  const {isAdmin, isLoggedIn, userID} = authCtx
-  const [isLoading, setLoading] = useState(true)
+  const { isAdmin, isLoggedIn, userID } = authCtx;
+  const [isLoading, setLoading] = useState(true);
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
   const [isUpdate, setUpdate] = useState(false);
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     fetch(`http://localhost:3000/products/${productId}`, {
@@ -44,10 +43,9 @@ const ProductDetail = () => {
   const productUpdateHandler = () => {
     setUpdate(true);
   };
-  const countChangeHandler = (event) =>{
-    setCount(event.target.value)
-  }
-
+  const countChangeHandler = (event) => {
+    setCount(event.target.value);
+  };
 
   const cartsHandler = () => {
     fetch("http://localhost:3000/carts", {
@@ -60,66 +58,59 @@ const ProductDetail = () => {
       body: JSON.stringify({
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
         id: userID,
-        productID: product.id
+        productID: product.id,
       }),
     });
     console.log(userID);
   };
 
-
-  const orderHandler = event => {
+  const orderHandler = (event) => {
     //if (event.key === 'Enter') {
-      navigate('/orders', {
-        state: {
-          product : product,
-          count: count
-        },
-      });
+    navigate("/orders", {
+      state: {
+        product: product,
+        count: count,
+      },
+    });
     //}
   };
 
   return (
     <div className="realtive_box">
       {!isLoading && <Detail product={product}></Detail>}
-      <div  className="inputdiv">
-      <input className="inputB" placeholder="수량" type="number" min="1" />
-      </div>
-            {/*isLoggedIn && */(
-      
-      <div className="Buttonw">
-        <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
-        <button className="purchaseB"><p className="p">즉시구매 </p> </button>
-      </div>
-            )}
-      <div  className="inputdiv">
-        <input className="inputB" placeholder="수량" type="number" min="1" />
-      
-      
-      
+      <div className="inputdiv">
+        <input
+          className="inputB"
+          placeholder="수량"
+          type="number"
+          min="1"
+          onChange={countChangeHandler}
+        />
         <div className="Buttonw">
-          <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
-          <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+          <button className="wishlistB" onClick={cartsHandler}>
+            <p>장바구니</p>
+          </button>
+          <button className="purchaseB" onClick={orderHandler}>
+            <p className="p">즉시구매 </p>{" "}
+          </button>
         </div>
       </div>
 
       <div className="button_UD">
         {isAdmin && !isUpdate && (
-          <button className="button_U" onClick={productUpdateHandler}>Update</button>
+          <button className="button_U" onClick={productUpdateHandler}>
+            Update
+          </button>
         )}
         {isAdmin && isUpdate && (
           <ProductUpdateForm product={product}></ProductUpdateForm>
         )}
-        {isAdmin && <button className="button_U" onClick={productDeleteHandler}>Delete</button>}
+        {isAdmin && (
+          <button className="button_U" onClick={productDeleteHandler}>
+            Delete
+          </button>
+        )}
       </div>
-      {
-      //isLoggedIn &&  
-      (
-        <div>
-          <button onClick={cartsHandler}>Carts</button>
-          <button onClick={orderHandler}>purchase</button>
-        </div>
-
-      )}
     </div>
   );
 };
