@@ -11,6 +11,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const {isAdmin, isLoggedIn, userID} = authCtx
+  const [isLoading, setLoading] = useState(true)
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
   const [isUpdate, setUpdate] = useState(false);
@@ -26,6 +27,7 @@ const ProductDetail = () => {
       })
       .then((data) => {
         setProduct(data);
+        setLoading(false);
       });
   }, []);
 
@@ -75,9 +77,18 @@ const ProductDetail = () => {
   };
 
   return (
-    <div>
-      <Detail product={product}></Detail>
-      <input type="number" value={count} name="" id="" onChange={countChangeHandler}/>
+    <div className="">
+      {!isLoading && <Detail product={product}></Detail>}
+      <div  className="inputdiv">
+      <input className="inputB" placeholder="수량" type="number" min="1" />
+      </div>
+            {/*isLoggedIn && */(
+      
+      <div className="Buttonw">
+        <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
+        <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+      </div>
+            )}
       <div>
         {isAdmin && !isUpdate && (
           <button onClick={productUpdateHandler}>Update</button>

@@ -12,10 +12,12 @@ import "./Detail.css"
  
 const Detail = (props) => {
   //없는 상품 처리
-  const {id, name, image, price} = props.product
+  const {id, name, price} = props.product
+  //console.log(props.product.photos[0].url)
+  //const image ="";
+  const image = props.product.photos[0].url
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
-  const [products, setProducts] = useState([]);
 
 
 
@@ -38,15 +40,6 @@ const Detail = (props) => {
         <p className="text2">가방방</p>
       </div>
       <div className="size">{/* selectbar */}</div>
-      <div className="purchase">
-        {/* {price} */}
-        {price}
-
-      </div>  
-      <div clasName="Button">
-        <button className="wishlistB">wishlist</button>
-        <button className="purchaseB">purchase</button>
-      </div>
       
       </div>
       <div></div>

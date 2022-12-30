@@ -15,8 +15,6 @@ import ProductAddForm from "./products/components/ProductAddForm";
 import Orders from "./orders/pages/Orders"
 import OrderCheck from "./orders/pages/OrderCheck"
 
-import ProductUpdateForm from "./products/components/ProductUpdateForm";
-
 function App() {
   return (
     <BrowserRouter>
