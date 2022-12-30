@@ -12,10 +12,12 @@ import "./Detail.css"
  
 const Detail = (props) => {
   //없는 상품 처리
-  const {description, name, image, price} = props.product
+  const {description, name, price} = props.product
+  //console.log(props.product.photos[0].url)
+  //const image ="";
+  const image = props.product.photos[0].url
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
-  const [products, setProducts] = useState([]);
 
 
 
@@ -24,7 +26,7 @@ const Detail = (props) => {
       <div className="imagebox">
         {/* 얘도 image로 */}
         
-        <img className="image" src="https://blog.kakaocdn.net/dn/d8uTod/btqJ4HaMMf6/DSVHYb5hP5Bs7bJkQZJplk/img.jpg" alt="" />
+        <img className="image" src="image" alt="" />
         {isAdmin && (
         <button className="editB" >edit</button>
       )}

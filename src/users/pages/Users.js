@@ -13,7 +13,7 @@ const Users = () => {
   //     })
   // }
   useEffect(() => {
-    fetch("http://35.78.92.72:3000/users", {
+    fetch("http://localhost:3000/users", {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })

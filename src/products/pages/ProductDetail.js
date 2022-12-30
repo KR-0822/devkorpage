@@ -8,16 +8,19 @@ import "./ProductDetail.css"
 import Detail from "../components/Detail";
 import AuthContext from "../../Auth/Auth-context";
 import ProductUpdateForm from "../components/ProductUpdateForm";
+import { Link } from "react-router-dom";
 const ProductDetail = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
   const {isAdmin, isLoggedIn, userID} = authCtx
-
+  const [isLoading, setLoading] = useState(true)
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
   const [isUpdate, setUpdate] = useState(false);
+  const [count, setCount] = useState(1)
+
   useEffect(() => {
-    fetch(`http://35.78.92.72:3000/products/${productId}`, {
+    fetch(`http://localhost:3000/products/${productId}`, {
       headers: { "Access-Control-Allow-Origin": "http://localhost" },
       credentials: "include",
     })
@@ -26,6 +29,7 @@ const ProductDetail = () => {
       })
       .then((data) => {
         setProduct(data);
+        setLoading(false);
       });
   }, []);
 
@@ -40,6 +44,11 @@ const ProductDetail = () => {
   const productUpdateHandler = () => {
     setUpdate(true);
   };
+  const countChangeHandler = (event) =>{
+    setCount(event.target.value)
+  }
+
+
   const cartsHandler = () => {
     fetch("http://localhost:3000/carts", {
       method: "POST",
@@ -58,9 +67,30 @@ const ProductDetail = () => {
   };
 
 
+  const orderHandler = event => {
+    //if (event.key === 'Enter') {
+      navigate('/orders', {
+        state: {
+          product : product,
+          count: count
+        },
+      });
+    //}
+  };
+
   return (
     <div className="realtive_box">
-      <Detail product={product}></Detail>
+      {!isLoading && <Detail product={product}></Detail>}
+      <div  className="inputdiv">
+      <input className="inputB" placeholder="수량" type="number" min="1" />
+      </div>
+            {/*isLoggedIn && */(
+      
+      <div className="Buttonw">
+        <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
+        <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+      </div>
+            )}
       <div  className="inputdiv">
         <input className="inputB" placeholder="수량" type="number" min="1" />
       
@@ -81,9 +111,15 @@ const ProductDetail = () => {
         )}
         {isAdmin && <button className="button_U" onClick={productDeleteHandler}>Delete</button>}
       </div>
+      {
+      //isLoggedIn &&  
+      (
+        <div>
+          <button onClick={cartsHandler}>Carts</button>
+          <button onClick={orderHandler}>purchase</button>
+        </div>
 
-
-      
+      )}
     </div>
   );
 };

@@ -1,22 +1,28 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import AuthContext from "../../Auth/Auth-context";
 import "./OrderForm.css";
 
-const OrderForm = () => {
+const OrderForm = (props) => {
+  const location = useLocation();
   const navigate = useNavigate();
  // const [checkedState, setCheckedState] = useState(
  //   new Array(categories.length).fill(false)
  // );
+  const authCtx = useContext(AuthContext);
+  const user_id = authCtx.userID  
+  const total_price = location.state.count * location.state.product.price
   const [formData, setFormData] = useState({
-    user_id: "",
+    user_id: user_id,
     orderer_name: "",
     receiver_name: "",
     address: "",
     zipcode: "",
     phone_no: "",
-    total_price: "",
-    productsID: [],
-    count: [],
+    total_price: total_price,
+    productName : location.state.product.name,
+    productsID: [location.state.product.id],
+    count: [location.state.count],
   });
   const [disabled, setDisabled] = useState(false);
   
@@ -77,9 +83,7 @@ const OrderForm = () => {
   const OrderFormSubmitHandler = (event) => {
     event.preventDefault();
     // categoriesSubmitHandler(checkedState);
-    console.log(formData.categories);
-
-    fetch("http://35.78.92.72:3000/products", {
+    fetch("http://localhost:3000/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +92,6 @@ const OrderForm = () => {
       credentials: "include",
       body: JSON.stringify({
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
-      
         user_id: formData.user_id,
         orderer_name: formData.orderer_name,
         receiver_name: formData.receiver_name ,
@@ -98,25 +101,23 @@ const OrderForm = () => {
         total_price: formData.total_price,
         productsID: formData.productsID,
         count: formData.count,
-
       }),
     });
-    navigate("/Orders");
+    navigate("/");
   };
   return (
     <div>
       <form onSubmit={OrderFormSubmitHandler}>
         <div className="Container">
-          <input type="number" name="" id="" className="Input" placeholder="ID"  onChange={user_idChangeHandler} />
+          {/* <input type="number" name="" id="" className="Input" placeholder="ID" value={user_id} onChange={user_idChangeHandler} /> */}
           <input type="text" className="Input" placeholder="보내는분" onChange={orderer_nameChangeHandler}/>
           <input type="text" className="Input" placeholder="받는분" onChange={receiver_nameChangeHandler}/>
+          <input type="text" className="Input" placeholder="주소" onChange={addressChangeHandler}/>
           <input type="text" className="Input" placeholder="우편번호" onChange={zipcodeChangeHandler}/>
           <input type="text" className="Input" placeholder="전화번호" onChange={phone_noChangeHandler}/>
-          <input type="number" className="Input" placeholder="가격" name="" id="" onChange={total_priceChangeHandler}/>
-          <input type="text" className="Input" placeholder="제품명" onChange={productsIDChangeHandler}/>
-          <input type="text" className="Input" placeholder="총가격" onChange={countChangeHandler}/>
-        
-
+          <input type="text" className="Input" placeholder="제품명" value={formData.productName} onChange={productsIDChangeHandler} disabled/>
+          <input type="number" className="Input" placeholder="수량" value ={formData.count} onChange={countChangeHandler} disabled/>
+          <input type="number" className="Input" placeholder="가격" name="" id="" value={formData.total_price} disabled />
           <button type="submit" className="Button"> 주문하기 </button>
         </div>
       </form>

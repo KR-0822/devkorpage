@@ -3,22 +3,20 @@ import { useNavigate } from "react-router-dom";
 import './ProductAddForm.css'
 const ProductAddForm = () => {
   const navigate = useNavigate();
-
-  const categories = ["female", "male"]; //이거 백에서 받아오게 바꾸기
+  const Categories = ["male", "female"]; //이거 백에서 받아오게 바꾸기
   const [checkedState, setCheckedState] = useState(
-    new Array(categories.length).fill(false)
+    new Array(Categories.length).fill(false)
   );
   const [formData, setFormData] = useState({
     name: "",
     price: 0,
-    categories: [],
+    checkedCategories: [],
     stock: 0,
     description: "",
     photos: {
       url: [],
     },
   });
-  const [disabled, setDisabled] = useState(false);
   const nameChangeHandler = (event) => {
     setFormData({
       ...formData,
@@ -31,28 +29,6 @@ const ProductAddForm = () => {
       price: event.target.value,
     });
   };
-
-  const categoriesCheckHandler = (event, index) => {
-    if (event.target.checked) {
-      checkedState[index] = true;
-    } else {
-      checkedState[index] = false;
-    }
-    //setCheckedState(updatedCheckedState);
-  };
-
-  const categoriesSubmitHandler = (checkedState) => {
-    let updateCategory = new Array();
-    checkedState.forEach((isChecked, index) => {
-      if (isChecked) {
-        updateCategory = [...updateCategory, categories[index]];
-      }
-    });
-    setFormData({
-      ...formData,
-      categories: updateCategory,
-    });
-  }; //카테고리 하는거 다시 하기
 
   const stockChangeHandler = (event) => {
     setFormData({
@@ -76,6 +52,29 @@ const ProductAddForm = () => {
     });
     console.log(formData.photos)
   }; // 여러개 받도록 수정하기
+
+  const categoriesCheckHandler = (index) => {
+    const updatedCheckedState = checkedState.map((checked, _index)=> index == _index ? !checked : checked)
+    setCheckedState(updatedCheckedState)
+    //setCheckedState(updatedCheckedState);
+  };
+
+  const categoriesSubmitHandler = (checkedState) => {
+    let updateCategory = new Array();
+    checkedState.forEach((isChecked, index) => {
+      if (isChecked) {
+        updateCategory = [...updateCategory, Categories[index]];
+      }
+    });
+    console.log(updateCategory) // 업데이트는 잘 됨
+    setFormData({
+      ...formData,
+      checkedCategories: updateCategory //왜 안 들어가는지 확인
+    });
+    console.log(formData)
+  }; 
+
+
   const addProductSubmitHandler = (event) => {
     event.preventDefault();
     categoriesSubmitHandler(checkedState);
@@ -90,15 +89,18 @@ const ProductAddForm = () => {
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
         name: formData.name,
         price: formData.price,
-        categories: formData.categories,
+        categories: formData.checkedCategories,
         stock: formData.stock,
         description: formData.description,
         photos: formData.photos,
       }),
     });
-
     navigate("/products");
   };
+
+
+
+
   return (
     <div>
       <form className="Container" onSubmit={addProductSubmitHandler}>
@@ -106,7 +108,7 @@ const ProductAddForm = () => {
         <input className="Inputs" type="number"  placeholder="Price" name="" id="" onChange={priceChangeHandler} />
         <input className="Inputs" type="number"  placeholder="Stock" name="" id="" onChange={stockChangeHandler} />
         <input className="Inputs" type="text"  placeholder="Description" name="" id="" onChange={descriptionChangeHandler} />
-        {categories.map((category, index) => {
+        {Categories.map((category, index) => {
           return (
             <li key={index}>
               {/* {index} */}
@@ -119,7 +121,7 @@ const ProductAddForm = () => {
                   name={category}
                   value={category}
                   //checked={checkedState[index]}
-                  onChange={(event) => categoriesCheckHandler(event, index)}
+                  onChange={() => categoriesCheckHandler(index)}
                 />
                 <label>{category}</label>
               </div>

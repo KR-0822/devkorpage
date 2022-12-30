@@ -3,27 +3,10 @@ import ProductAddForm from "./ProductAddForm";
 
 import { NavLink } from "react-router-dom";
 import "./ProductList.css";
+import ProductNotFound from "../../shared/Error/ProductNotFound";
 const ProductList = (props) => {
   if (props.items.length === 0) {
-    return (
-    
-    <div className="page-404">
-    <div className="outer">
-        <div className="middle">
-            <div className="inner">
-                <div className="inner-circle"><i className="fa fa-home"></i><span>Error</span></div>
-                <span className="inner-status">Oops! There is no product</span>
-                <span className="inner-detail">
-                  Sorry for the inconvenience.    
-                    <a href="/" className="btn btn-info mtl"><i className="fa fa-home"></i>&nbsp;
-                        Return home
-                    </a> 
-                </span>
-            </div>
-        </div>
-    </div>
-    </div>
-    )
+   return <ProductNotFound></ProductNotFound>
   }
 
   
