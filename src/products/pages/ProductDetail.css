@@ -1,51 +1,48 @@
+.relative_box{
+    position: relative;
 
+}
 .Buttonw{
     display: flex;
 
     height: 20%;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     color: #ffffff;
     background-color:#ffffff00;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
 .wishlistB{
-    width: 20%;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    line-height: 40px;
     background-color: #ffffff;
-    margin-left: 10%;
-    margin-right: 10%;
     border-color: #000000;
-
+    
 
 
     
 }
 .purchaseB{
-    width: 20%;
+    margin-top: 5%;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    line-height: 40px;
     background-color: #000000;
-    margin-left: 10%;
-    margin-right: 10%;
     
 }
 .inputdiv{
-    margin-left: 64%;
+    margin-left: 65%;
     display: flex;
-
+    flex-direction: column;
+    position: absolute;    
+    top: 65%;
+    align-items: center;
 }
 .inputB{
 position: relative;
@@ -56,8 +53,34 @@ margin-bottom: 3%;
 border: solid 1px #dadada;
 background: #fff;
 box-sizing: border-box;
+text-align: center;
 
 }
 .p{
     color: white;
+}
+.button_UD{
+    align-items: center;
+    position: absolute;
+    top: 14%;
+    left: 33%;
+    display: flex;
+    flex-direction: row;
+
+}
+.button_U{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    display: block;
+    height: 30px;
+    width: 70px;
+    margin: 16px 0 7px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    background-color: #60cfbdd5;
+    margin-right: 10%;
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './ProductAddForm.css'
 const ProductAddForm = () => {
   const navigate = useNavigate();
 
@@ -99,34 +100,38 @@ const ProductAddForm = () => {
     navigate("/products");
   };
   return (
-    <form onSubmit={addProductSubmitHandler}>
-      <input type="text" onChange={nameChangeHandler} />
-      <input type="number" name="" id="" onChange={priceChangeHandler} />
-      <input type="number" name="" id="" onChange={stockChangeHandler} />
-      <input type="text" name="" id="" onChange={descriptionChangeHandler} />
-      {categories.map((category, index) => {
-        return (
-          <li key={index}>
-            {index}
-            <div>
-              <input
-                type="checkbox"
-                id={`custom-checkbox-${index}`}
-                name={category}
-                value={category}
-                //checked={checkedState[index]}
-                onChange={(event) => categoriesCheckHandler(event, index)}
-              />
-              <label>{category}</label>
-            </div>
-          </li>
-        );
-      })}
-      <input type="url" name="" id="" onChange={photosChangeHandler}/>
+    <div>
+      <form className="Container" onSubmit={addProductSubmitHandler}>
+        <input className="Inputs"  placeholder="Name" type="text" onChange={nameChangeHandler} />
+        <input className="Inputs" type="number"  placeholder="Price" name="" id="" onChange={priceChangeHandler} />
+        <input className="Inputs" type="number"  placeholder="Stock" name="" id="" onChange={stockChangeHandler} />
+        <input className="Inputs" type="text"  placeholder="Description" name="" id="" onChange={descriptionChangeHandler} />
+        {categories.map((category, index) => {
+          return (
+            <li key={index}>
+              {/* {index} */}
+              
+              <div>
+                
+                <input 
+                  type="checkbox"
+                  id={`custom-checkbox-${index}`}
+                  name={category}
+                  value={category}
+                  //checked={checkedState[index]}
+                  onChange={(event) => categoriesCheckHandler(event, index)}
+                />
+                <label>{category}</label>
+              </div>
+            </li>
+          );
+        })}
+        <input className="Inputs"  placeholder="Image URL" type="url" name="" id="" onChange={photosChangeHandler}/>
 
-      
-      <button type="submit"></button>
-    </form>
+        
+        <button className="Button" type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 

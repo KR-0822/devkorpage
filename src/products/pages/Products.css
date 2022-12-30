@@ -1,0 +1,26 @@
+
+.Add{
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 30px;
+    display: block;
+    margin: 16px 0 7px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    background-color: #60cfbdd5;
+    text-decoration: none;
+}
+
+.absolute{
+    position: absolute;
+    right: 5%;
+}
+
+.productlistbox{
+    display: flex;
+    justify-content: center;
+    
+}

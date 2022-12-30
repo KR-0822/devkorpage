@@ -1,0 +1,49 @@
+li{
+    list-style-type: none;
+}
+
+.editBox{
+    background-color: rgba(240, 248, 255, 0.787);    
+    display: flex;
+    align-items: center;
+
+
+}
+
+.Inputs { 
+    position: relative;
+    overflow: hidden;
+    width: 51%;
+    height: 40px;
+    margin: 0 0 8px;
+    padding: 5px 39px 5px 11px;
+    border: solid 1px #dadada;
+    background: #fff;
+    box-sizing: border-box;
+    
+    }
+
+.form{
+    margin-top: 10%;
+    padding: 20px;
+    margin-left: 33%;
+    
+
+}
+
+.Button_s{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    display: block;
+    height: 30px;
+    width: 70px;
+    margin: 16px 0 7px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    background-color: #60cfbdd5;
+    margin-right: 10%;
+}

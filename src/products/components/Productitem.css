@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 ul{
     list-style: none;
 
@@ -16,6 +18,7 @@ ul{
     margin-bottom: 1.875rem;
     border-radius: 1px;
     float: left;
+    margin-left: 40px;
     margin-top: 50px;
     margin-right: 32px;
     border-bottom: none;
@@ -31,7 +34,7 @@ ul{
   }
 
 .productname{
-    font-size: 17px;
+    font-size: 30px;
     margin-left: 10px;
     text-decoration-line: none;
     text-decoration: none; /* 링크의 밑줄 제거 */

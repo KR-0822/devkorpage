@@ -65,10 +65,12 @@ const Login = () => {
   };
   return (
     <div className="Container">
-      <input className="Input" type="text" onChange={idChangeHandler}></input>
+      <div className="SmallC">
+      <input className="Input" placeholder="ID" type="text" onChange={idChangeHandler}></input>
       <input
         className="Input"
         type="password"
+        placeholder="Password"
         onChange={passwordChangeHandler}
       ></input>
       <button className="Button" onClick={loginSubmitHandler}>
@@ -77,6 +79,7 @@ const Login = () => {
       <Link to={"/auth/register"}>
         <button className="Button2"> Sign Up </button>
       </Link>
+      </div>
     </div>
   );
 };

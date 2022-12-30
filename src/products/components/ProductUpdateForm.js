@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import './ProductUpdateForm.css'
+
 const ProductUpdateForm = (props) => {
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -98,33 +100,35 @@ const ProductUpdateForm = (props) => {
     navigate("/products");
   };
   return (
-    <form onSubmit={updateProductSubmitHandler}>
-      <input type="text"  value={formData.name} onChange={nameChangeHandler} />
-      <input type="number" value={formData.price} name="" id="" onChange={priceChangeHandler} />
-      <input type="number" value={formData.stock} name="" id="" onChange={stockChangeHandler} />
-      <input type="text" value={formData.description} name="" id="" onChange={descriptionChangeHandler} />
-      {categories.map((category, index) => {
-        return (
-          <li key={index}>
-            {index}
-            <div>
-              <input
-                type="checkbox"
-                id={`custom-checkbox-${index}`}
-                name={category}
-                value={category}
-                checked={checkedState[index]} // 여기 바꾸기
-                onChange={(event) => categoriesCheckHandler(event, index)}
-              />
-              <label>{category}</label>
-            </div>
-          </li>
-        );
-      })}
-      <input type="url" name="" id="" onChange={photosChangeHandler}/> 
-      
-      <button type="submit"></button>
-    </form>
+    <div className="editBox">
+      <form className="Container" onSubmit={updateProductSubmitHandler}>
+        <input className="Inputs" type="text"  value={formData.name} onChange={nameChangeHandler} />
+        <input className="Inputs" type="number" value={formData.price} name="" id="" onChange={priceChangeHandler} />
+        <input className="Inputs" type="number" value={formData.stock} name="" id="" onChange={stockChangeHandler} />
+        <input className="Inputs" type="text" value={formData.description} name="" id="" onChange={descriptionChangeHandler} />
+        {categories.map((category, index) => {
+          return (
+            <li key={index}>
+              {/* {index} */}
+              <div>
+                <input
+                  type="checkbox"
+                  id={`custom-checkbox-${index}`}
+                  name={category}
+                  value={category}
+                  checked={checkedState[index]} // 여기 바꾸기
+                  onChange={(event) => categoriesCheckHandler(event, index)}
+                />
+                <label>{category}</label>
+              </div>
+            </li>
+          );
+        })}
+        <input className="Inputs" type="url"  placeholder="Type URL" name="" id="" onChange={photosChangeHandler}/> 
+        <button className="updateButton" type="submit">Submit</button>
+        
+      </form>
+    </div>
   );
 };
 

@@ -12,7 +12,7 @@ import "./Detail.css"
  
 const Detail = (props) => {
   //없는 상품 처리
-  const {id, name, image, price} = props.product
+  const {description, name, image, price} = props.product
   const authCtx = useContext(AuthContext);
   const isAdmin = authCtx.isAdmin;
   const [products, setProducts] = useState([]);
@@ -24,7 +24,7 @@ const Detail = (props) => {
       <div className="imagebox">
         {/* 얘도 image로 */}
         
-        <img className="image" src={image} alt="" />
+        <img className="image" src="https://blog.kakaocdn.net/dn/d8uTod/btqJ4HaMMf6/DSVHYb5hP5Bs7bJkQZJplk/img.jpg" alt="" />
         {isAdmin && (
         <button className="editB" >edit</button>
       )}
@@ -32,20 +32,18 @@ const Detail = (props) => {
       </div>
       <div className="sidebox">
       <div className="text2">
+       
+       <p className="text2_name">
         {name}
+        </p>
         </div>
-      <div className="text2">
-        {id}
-        </div>
-      <div className="text2">
+       <p className="text2_id">
+        {description}
+        </p>
+        <p className="text2_price">
         ${price}
-      </div>
-      <div className="size">{/* selectbar */}</div>
-      <div className="purchase">
-        {/* {price} */}
-        ${price}
-
-      </div>  
+        </p>
+      <div className="size">{/* selectbar */}</div> 
       
       </div>
     </div>

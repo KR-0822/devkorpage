@@ -59,26 +59,27 @@ const ProductDetail = () => {
 
 
   return (
-    <div className="">
+    <div className="realtive_box">
       <Detail product={product}></Detail>
       <div  className="inputdiv">
-      <input className="inputB" placeholder="수량" type="number" min="1" />
-      </div>
-            {/*isLoggedIn && */(
+        <input className="inputB" placeholder="수량" type="number" min="1" />
       
-      <div className="Buttonw">
-        <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
-        <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+      
+      
+        <div className="Buttonw">
+          <button className="wishlistB" onClick={cartsHandler}><p>장바구니</p></button>
+          <button className="purchaseB"><p className="p">즉시구매 </p> </button>
+        </div>
       </div>
-            )}
-      <div>
+
+      <div className="button_UD">
         {isAdmin && !isUpdate && (
-          <button onClick={productUpdateHandler}>Update</button>
+          <button className="button_U" onClick={productUpdateHandler}>Update</button>
         )}
         {isAdmin && isUpdate && (
           <ProductUpdateForm product={product}></ProductUpdateForm>
         )}
-        {isAdmin && <button onClick={productDeleteHandler}>Delete</button>}
+        {isAdmin && <button className="button_U" onClick={productDeleteHandler}>Delete</button>}
       </div>
 
 
