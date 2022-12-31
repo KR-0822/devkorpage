@@ -1,7 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-import DUMMY_Products from "../components/DUMMY_PRODUCT";
 import "./ProductDetail.css";
 
 import Detail from "../components/Detail";
@@ -11,7 +9,7 @@ import { Link } from "react-router-dom";
 const ProductDetail = () => {
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
-  const { isAdmin, isLoggedIn, userID } = authCtx;
+  const { isAdmin, isLoggedIn, userID , cartID} = authCtx;
   const [isLoading, setLoading] = useState(true);
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
@@ -57,11 +55,10 @@ const ProductDetail = () => {
       credentials: "include",
       body: JSON.stringify({
         //보내는부분 백이 body에 뭐가 오면 처리하게되어있음
-        id: userID,
+        id: cartID,
         productID: product.id,
       }),
     });
-    console.log(userID);
   };
 
   const orderHandler = (event) => {

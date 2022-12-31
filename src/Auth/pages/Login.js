@@ -47,6 +47,8 @@ const Login = () => {
         authCtx.login(data.role)
         authCtx.roleCheck(data.role)
         authCtx.userIDCheck(data.id)
+        authCtx.cartIDCheck(data.cartID)
+        console.log(data.cartID)
         navigate('/')
       });
   };

@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AuthContext from "../../Auth/Auth-context";
 import ProductList from "../../products/components/ProductList";
 
 const Carts = () => {
+  const authCtx = useContext(AuthContext);
+  const cartID = authCtx.cartID
   const [carts, setCarts] = useState({
-    id: 2,
     num_Items: 0,
     product: [{}],
   });
-  const cartID = 2; // 이거 받아오게 하기 쿠키에 집어넣어서?
 
   useEffect(() => {
     fetch(`http://localhost:3000/carts/${cartID}`, {
@@ -16,13 +17,10 @@ const Carts = () => {
       credentials: "include",
     })
       .then((response) => {
-        console.log(response);
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setCarts({
-          id: data[0].id,
           num_Items: data[0].num_Items,
           product: data[0].product,
         });

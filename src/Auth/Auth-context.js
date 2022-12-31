@@ -3,18 +3,21 @@ import React, { useState } from "react"
 const AuthContext = React.createContext({
     token: '',
     userID: 0,
+    cartID : 0,
     isLoggedIn: false,
     isAdmin : false,
     login : (token)=>{},
     logout : () =>{},  
     roleCheck : (role) =>{},
-    userIDCheck : (id) =>{}
+    userIDCheck : (id) =>{},
+    cartIDCheck : (cartID) =>{}
 })
 
 export const AuthContextProvider = (props) =>{
    
     const [token, setToken] = useState(null);
     const [userID, setUserID] = useState(0)
+    const [cartID, setCartID] = useState(0)
     const [isAdmin,setAdmin] = useState(false)
     const userIsLoggedIn = !!token; 
     const loginHandler = (token)=>{
@@ -32,6 +35,9 @@ export const AuthContextProvider = (props) =>{
     const userIDCheckHandler = (id) =>{
         setUserID(id);
     }
+    const cartIDCheckHandler = (cartID) =>{
+        setCartID(cartID);
+    }
     const contextValue = {
         token: token,
         isLoggedIn : userIsLoggedIn,
@@ -40,7 +46,9 @@ export const AuthContextProvider = (props) =>{
         isAdmin : isAdmin,
         roleCheck : roleCheckHandler,
         userID : userID,
-        userIDCheck : userIDCheckHandler
+        userIDCheck : userIDCheckHandler,
+        cartID: cartID,
+        cartIDCheck : cartIDCheckHandler
     }
     return <AuthContext.Provider value={contextValue}>{props.children}</AuthContext.Provider>
 }
